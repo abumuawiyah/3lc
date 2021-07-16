@@ -1,0 +1,44 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "atomic-component": [
+        "dist/atomic-component",
+        "dist/atomic-component"
+      ],
+      "atomic-component/*": [
+        "dist/atomic-component/*",
+        "dist/atomic-component/*"
+      ],
+      "frontal": [
+        "dist/frontal"
+      ],
+      "frontal/*": [
+        "dist/frontal/*"
+      ],
+      "rapi-chat": [
+        "dist/rapi-chat"
+      ],
+      "rapi-chat/*": [
+        "dist/rapi-chat/*"
+      ]
+    }
+  }
+}

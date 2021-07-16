@@ -1,0 +1,51 @@
+<ThemeProvider>
+
+  <h2>Breadcrumbs A</h2>
+  <Breadcrumbs>
+    <ng-template let-selectedItem="selectedItem">
+        <DIV>
+            <OL [css]="styleA.olStyle">
+              <LI [css]="styleA.liStyle">
+                <Box [css]="styleA.indicatorStyle">{{selectedItem.value}}</Box>
+              </LI>
+              <LI [css]="styleA.liStyle" [item]="{value: '1'}" breadcrumbItem><A href="javascript:void(0);">Link 1</A></LI>
+              <LI [css]="styleA.liStyle" [item]="{value: '2'}" breadcrumbItem><A href="javascript:void(0);">Link 2</A></LI>
+              <LI [css]="styleA.liStyle" [item]="{value: '3'}" breadcrumbItem><A href="javascript:void(0);">Link 3</A></LI>
+              <LI [css]="styleA.liStyle" [item]="{value: '4'}" breadcrumbItem><A href="javascript:void(0);">Link 4</A></LI>
+              <LI [css]="styleA.liStyle" [item]="{value: '5'}" breadcrumbItem>Link 5</LI>
+            </OL>
+          </DIV>
+    </ng-template>
+  </Breadcrumbs>
+
+  <h2>Breadcrumbs B</h2>
+  <Breadcrumbs>
+    <ng-template let-selectedItem="selectedItem">
+      <NAV [css]="styleB.navStyle">
+        <A href="" [css]="styleB.aStyle">Link 1</A>
+        <A href="" [css]="styleB.aStyle">Link 2</A>
+        <A href="" [css]="styleB.aStyle">Link 3</A>
+        <A href="" [css]="styleB.aStyle">Link 4</A>
+        <A href="" [css]="styleB.aStyle">Link 5</A>
+      </NAV>
+    </ng-template>
+  </Breadcrumbs>
+
+  <h2>Breadcrumbs C</h2>
+  <Breadcrumbs>
+    <ng-template let-selectedItem="selectedItem">
+      <NAV>
+        <OL [css]="styleC.olStyle">
+          <LI [css]="styleC.liStyle"><A href="#">Link 1</A></LI>
+          <LI [css]="styleC.liStyle"><A href="#">Link 2</A></LI>
+          <LI [css]="styleC.liStyle"><A href="#">Link 3</A></LI>
+          <LI [css]="styleC.liStyle"><A href="#">Link 4</A></LI>
+          <LI [css]="styleC.liStyle"><A href="#">Link 5</A></LI>
+        </OL>
+      </NAV>
+    </ng-template>
+  </Breadcrumbs>
+
+
+
+</ThemeProvider>
