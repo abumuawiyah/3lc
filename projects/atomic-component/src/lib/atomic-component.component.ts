@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "lib-atomic-component",
-  templateUrl: "./atomic-component.component.html",
+  template: ``,
   styles: []
 })
 export class AtomicComponentComponent {
