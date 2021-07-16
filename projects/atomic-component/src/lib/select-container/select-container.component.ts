@@ -9,13 +9,13 @@ import {
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'Breadcrumbs',
-  exportAs: 'Breadcrumbs',
+  selector: 'select-container',
+  exportAs: 'selectContainer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ng-container *ngIf="(state | async) as breadcrumbState">
+    <ng-container *ngIf="(state | async) as selectState">
       <ng-container
-        *ngTemplateOutlet="template; context: breadcrumbState"
+        *ngTemplateOutlet="template; context: selectState"
       ></ng-container>
     </ng-container>
   `

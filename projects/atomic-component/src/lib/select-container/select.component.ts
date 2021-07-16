@@ -15,7 +15,7 @@ import { SelectContainerComponent } from './select-container.component';
 
 @Directive({
   selector: 'my-select',
-  exportAs: 'breadcrumbItem'
+  exportAs: 'mySelect'
 })
 export class MySelectComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() item: Object = {};
