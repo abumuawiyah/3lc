@@ -1,7 +1,7 @@
 <select-container>
-  <ng-template let-selectedItem="selectedItem">
+  <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem">
     <my-select>Test</my-select>
-    <div>
+    <div *ngIf="isOpen">
       <my-option [item]="{value: '1'}">Link 1</my-option>
       <my-option [item]="{value: '2'}">Link 2</my-option>
     </div>
