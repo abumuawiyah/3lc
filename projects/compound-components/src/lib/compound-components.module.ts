@@ -14,4 +14,4 @@ import { MySelectComponent } from './select-container/select.component';
   imports: [CommonModule, FrontalModule],
   exports: [SelectContainerComponent, MyOptionComponent, MySelectComponent]
 })
-export class AtomicComponentModule {}
+export class CompoundComponentsModule {}

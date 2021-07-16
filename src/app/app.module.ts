@@ -1,14 +1,14 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-import { AtomicComponentModule } from "./../../projects/atomic-component/src/public-api";
+import { CompoundComponentsModule } from './../../projects/compound-components/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, AtomicComponentModule],
+  imports: [BrowserModule, AppRoutingModule, CompoundComponentsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
