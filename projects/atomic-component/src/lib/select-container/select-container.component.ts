@@ -23,25 +23,39 @@ import { BehaviorSubject } from 'rxjs';
 export class SelectContainerComponent implements AfterViewInit, OnDestroy {
   @ContentChild(TemplateRef, { static: false }) template!: TemplateRef<any>;
 
-  state = new BehaviorSubject({ selectedItem: {}, highlightedItem: {} });
+  state = new BehaviorSubject({
+    isOpen: false,
+    selectedItem: {},
+    highlightedItem: {}
+  });
 
-  itemClick(item) {
-    console.log(item);
+  selectClick() {
     this.state.next({
-      selectedItem: item,
-      highlightedItem: this.state.getValue().highlightedItem
+      ...this.state.getValue(),
+      isOpen: !this.state.getValue().isOpen ? true : false
     });
+    console.log('select clicked', this.state.getValue());
   }
 
-  itemHover(item) {
+  optionClick(item) {
     this.state.next({
-      highlightedItem: item,
-      selectedItem: this.state.getValue().selectedItem
+      ...this.state.getValue(),
+      selectedItem: item
     });
+    console.log('option clicked', this.state.getValue());
+  }
+
+  optionHover(item) {
+    this.state.next({
+      ...this.state.getValue(),
+      highlightedItem: item
+    });
+    console.log('option hovered', this.state.getValue());
   }
 
   ngAfterViewInit() {
     this.state.next({
+      isOpen: false,
       selectedItem: { value: '' },
       highlightedItem: { value: '' }
     });

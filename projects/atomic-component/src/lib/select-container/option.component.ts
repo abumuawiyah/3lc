@@ -33,11 +33,11 @@ export class MyOptionComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     fromEvent(this.element.nativeElement, 'click')
       .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.selectContainer.itemClick(this.item));
+      .subscribe(_ => this.selectContainer.optionClick(this.item));
 
     fromEvent(this.element.nativeElement, 'mouseover')
       .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.selectContainer.itemHover(this.item));
+      .subscribe(_ => this.selectContainer.optionHover(this.item));
   }
 
   ngOnDestroy() {

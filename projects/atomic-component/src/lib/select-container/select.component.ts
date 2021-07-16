@@ -18,8 +18,6 @@ import { SelectContainerComponent } from './select-container.component';
   exportAs: 'mySelect'
 })
 export class MySelectComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() item: Object = {};
-  @HostBinding('class') className = '';
   private destroy = new Subject<void>();
 
   constructor(
@@ -33,11 +31,7 @@ export class MySelectComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     fromEvent(this.element.nativeElement, 'click')
       .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.selectContainer.itemClick(this.item));
-
-    fromEvent(this.element.nativeElement, 'mouseover')
-      .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.selectContainer.itemHover(this.item));
+      .subscribe(_ => this.selectContainer.selectClick());
   }
 
   ngOnDestroy() {
