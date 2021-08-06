@@ -14,10 +14,11 @@ import { takeUntil } from 'rxjs/operators';
 import { SelectContainerComponent } from './select-container.component';
 
 @Directive({
-  selector: 'my-select',
-  exportAs: 'mySelect'
+  selector: '[select-trigger]',
+  exportAs: 'selectTrigger'
 })
-export class MySelectComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SelectTriggerDirective
+  implements OnInit, AfterViewInit, OnDestroy {
   private destroy = new Subject<void>();
 
   constructor(

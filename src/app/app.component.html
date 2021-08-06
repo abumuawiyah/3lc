@@ -1,9 +1,9 @@
 <select-container>
   <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem">
-    <my-select>Test</my-select>
-    <div *ngIf="isOpen">
-      <my-option [item]="{value: '1'}">Link 1</my-option>
-      <my-option [item]="{value: '2'}">Link 2</my-option>
-    </div>
+    <span select-trigger>Select me</span>
+    <ul *ngIf="isOpen">
+      <li option-item [item]="{value: '1'}">Link 1</li>
+      <li option-item [item]="{value: '2'}">Link 2</li>
+    </ul>
   </ng-template>
 </select-container>

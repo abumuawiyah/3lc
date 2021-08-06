@@ -14,10 +14,10 @@ import { takeUntil } from 'rxjs/operators';
 import { SelectContainerComponent } from './select-container.component';
 
 @Directive({
-  selector: 'my-option',
-  exportAs: 'myOption'
+  selector: '[option-item]',
+  exportAs: 'optionItem'
 })
-export class MyOptionComponent implements OnInit, AfterViewInit, OnDestroy {
+export class OptionItemDirective implements OnInit, AfterViewInit, OnDestroy {
   @Input() item: Object = {};
   @HostBinding('class') className = '';
   private destroy = new Subject<void>();

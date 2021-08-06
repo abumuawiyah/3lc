@@ -5,10 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CompoundComponentsModule } from './../../projects/compound-components/src/public-api';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CompoundComponentsModule],
+  imports: [BrowserModule, CommonModule, AppRoutingModule, CompoundComponentsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

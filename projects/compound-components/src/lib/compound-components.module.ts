@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FrontalModule } from 'frontal';
 import { SelectContainerComponent } from './select-container/select-container.component';
-import { MyOptionComponent } from './select-container/option.component';
-import { MySelectComponent } from './select-container/select.component';
+import { OptionItemDirective } from './select-container/option-item.directive';
+import { SelectTriggerDirective } from './select-container/select-trigger.directive';
 
 @NgModule({
   declarations: [
     SelectContainerComponent,
-    MyOptionComponent,
-    MySelectComponent
+    OptionItemDirective,
+    SelectTriggerDirective
   ],
   imports: [CommonModule, FrontalModule],
-  exports: [SelectContainerComponent, MyOptionComponent, MySelectComponent]
+  exports: [
+    SelectContainerComponent,
+    OptionItemDirective,
+    SelectTriggerDirective
+  ]
 })
 export class CompoundComponentsModule {}
