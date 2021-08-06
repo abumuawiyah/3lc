@@ -7,3 +7,16 @@
     </ul>
   </ng-template>
 </select-container>
+
+<br />
+<br />
+
+<select-container>
+  <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem">
+    <span select-trigger>Select me</span>
+    <ul *ngIf="isOpen">
+      <li option-item [item]="{value: '1'}">Link 1</li>
+      <li option-item [item]="{value: '2'}">Link 2</li>
+    </ul>
+  </ng-template>
+</select-container>

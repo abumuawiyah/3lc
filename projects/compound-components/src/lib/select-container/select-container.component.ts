@@ -21,7 +21,7 @@ import { BehaviorSubject } from 'rxjs';
   `
 })
 export class SelectContainerComponent implements AfterViewInit, OnDestroy {
-  @ContentChild(TemplateRef, { static: false }) template!: TemplateRef<any>;
+  @ContentChild(TemplateRef, {}) template!: TemplateRef<any>;
 
   state = new BehaviorSubject({
     isOpen: false,
