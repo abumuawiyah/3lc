@@ -6,10 +6,17 @@ import { AppComponent } from './app.component';
 
 import { CompoundComponentsModule } from './../../projects/compound-components/src/public-api';
 import { CommonModule } from '@angular/common';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CommonModule, AppRoutingModule, CompoundComponentsModule],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    AppRoutingModule,
+    CompoundComponentsModule,
+    ClickOutsideModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -15,19 +15,35 @@ import { BehaviorSubject } from 'rxjs';
   template: `
     <ng-container *ngIf="(state | async) as selectState">
       <ng-container
-        *ngTemplateOutlet="template; context: selectState"
+        *ngTemplateOutlet="template; context: getContext(selectState)"
       ></ng-container>
     </ng-container>
   `
 })
 export class SelectContainerComponent implements AfterViewInit, OnDestroy {
   @ContentChild(TemplateRef, {}) template!: TemplateRef<any>;
+  toggleIsOpen = () => {
+    if (!this.state.getValue().isOpen) {
+      return;
+    }
+    this.state.next({
+      ...this.state.getValue(),
+      isOpen: false
+    });
+  };
 
   state = new BehaviorSubject({
     isOpen: false,
     selectedItem: {},
     highlightedItem: {}
   });
+
+  getContext(selectState) {
+    return {
+      ...selectState,
+      toggleIsOpen: this.toggleIsOpen
+    };
+  }
 
   selectClick() {
     this.state.next({

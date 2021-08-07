@@ -12,11 +12,13 @@
 <br />
 
 <select-container>
-  <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem">
-    <span select-trigger>Select me</span>
-    <ul *ngIf="isOpen">
-      <li option-item [item]="{value: '1'}">Link 1</li>
-      <li option-item [item]="{value: '2'}">Link 2</li>
-    </ul>
+  <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem" let-toggleIsOpen="toggleIsOpen">
+    <section (clickOutside)="onClickedOutside($event, toggleIsOpen, isOpen)" class="select">
+      <span select-trigger class="select__trigger">Select me</span>
+      <ul *ngIf="isOpen" class="select__list">
+        <li option-item [item]="{value: '1'}">Link 1</li>
+        <li option-item [item]="{value: '2'}">Link 2</li>
+      </ul>
+    </section>
   </ng-template>
 </select-container>
