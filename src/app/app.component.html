@@ -14,10 +14,27 @@
 <select-container>
   <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem" let-toggleIsOpen="toggleIsOpen">
     <section (clickOutside)="onClickedOutside($event, toggleIsOpen, isOpen)" class="select">
-      <span select-trigger class="select__trigger">Select me</span>
+      <div select-trigger class="select__trigger">
+        <span>{{selectedItem.value ? 'Link ' + selectedItem.value : 'Please select...'}}</span>
+        <span class="material-icons" *ngIf="!isOpen; else arrowUpTmpl">
+          arrow_drop_down
+        </span>
+        <ng-template #arrowUpTmpl>
+          <span class="material-icons">
+            arrow_drop_up
+          </span>
+        </ng-template>
+      </div>
       <ul *ngIf="isOpen" class="select__list">
-        <li option-item [item]="{value: '1'}">Link 1</li>
-        <li option-item [item]="{value: '2'}">Link 2</li>
+        <li [style.fontWeight]="selectedItem.value === '1' ? 'bold' : 'normal'" option-item [item]="{value: '1'}">
+          Link 1
+        </li>
+        <li [style.fontWeight]="selectedItem.value === '2' ? 'bold' : 'normal'" option-item [item]="{value: '2'}">
+          Link 2
+        </li>
+        <li [style.fontWeight]="selectedItem.value === '3' ? 'bold' : 'normal'" option-item [item]="{value: '3'}">
+          Link 3
+        </li>
       </ul>
     </section>
   </ng-template>
