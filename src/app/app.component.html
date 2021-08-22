@@ -12,10 +12,11 @@
 <br />
 
 <select-container>
-  <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem" let-toggleIsOpen="toggleIsOpen">
+  <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem" let-highlightedItem="highlightedItem"
+    let-toggleIsOpen="toggleIsOpen">
     <section (clickOutside)="onClickedOutside($event, toggleIsOpen, isOpen)" class="select">
       <div select-trigger class="select__trigger">
-        <span>{{selectedItem.value ? 'Link ' + selectedItem.value : 'Please select...'}}</span>
+        <span>{{selectedItem.value ? 'Link ' + selectedItem.value : 'Please select...'}} {{highlightedItem?.value}}</span>
         <span class="material-icons" *ngIf="!isOpen; else arrowUpTmpl">
           arrow_drop_down
         </span>
@@ -26,14 +27,17 @@
         </ng-template>
       </div>
       <ul *ngIf="isOpen" class="select__list">
-        <li [style.fontWeight]="selectedItem.value === '1' ? 'bold' : 'normal'" option-item [item]="{value: '1'}">
-          Link 1
+        <li [style.fontWeight]="selectedItem.value === '1' ? 'bold' : 'normal'" option-item [item]="{value: '1'}"
+          [style.backgroundColor]="highlightedItem.value === '1' ? 'grey' : 'white'">
+          &nbsp;&nbsp;Link 1
         </li>
-        <li [style.fontWeight]="selectedItem.value === '2' ? 'bold' : 'normal'" option-item [item]="{value: '2'}">
-          Link 2
+        <li [style.fontWeight]="selectedItem.value === '2' ? 'bold' : 'normal'" option-item [item]="{value: '2'}"
+          [style.backgroundColor]="highlightedItem.value === '2' ? 'grey' : 'white'">
+          &nbsp;&nbsp;Link 2
         </li>
-        <li [style.fontWeight]="selectedItem.value === '3' ? 'bold' : 'normal'" option-item [item]="{value: '3'}">
-          Link 3
+        <li [style.fontWeight]="selectedItem.value === '3' ? 'bold' : 'normal'" option-item [item]="{value: '3'}"
+          [style.backgroundColor]="highlightedItem.value === '3' ? 'grey' : 'white'">
+          &nbsp;&nbsp;Link 3
         </li>
       </ul>
     </section>

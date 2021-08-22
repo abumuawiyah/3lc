@@ -38,6 +38,10 @@ export class OptionItemDirective implements OnInit, AfterViewInit, OnDestroy {
     fromEvent(this.element.nativeElement, 'mouseover')
       .pipe(takeUntil(this.destroy))
       .subscribe(_ => this.selectContainer.optionHover(this.item));
+
+    fromEvent(this.element.nativeElement, 'mouseleave')
+      .pipe(takeUntil(this.destroy))
+      .subscribe(_ => this.selectContainer.optionRemoveHover());
   }
 
   ngOnDestroy() {

@@ -69,6 +69,14 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy {
     console.log('option hovered', this.state.getValue());
   }
 
+  optionRemoveHover() {
+    this.state.next({
+      ...this.state.getValue(),
+      highlightedItem: {}
+    });
+    console.log('option remove hover', this.state.getValue());
+  }
+
   ngAfterViewInit() {
     this.state.next({
       isOpen: false,
