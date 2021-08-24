@@ -19,7 +19,6 @@ import { SelectContainerComponent } from './select-container.component';
 })
 export class OptionItemDirective implements OnInit, AfterViewInit, OnDestroy {
   @Input() item: Object = {};
-  @HostBinding('class') className = '';
   private destroy = new Subject<void>();
 
   constructor(

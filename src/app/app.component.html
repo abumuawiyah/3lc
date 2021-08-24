@@ -16,7 +16,7 @@
     let-toggleIsOpen="toggleIsOpen">
     <section (clickOutside)="onClickedOutside($event, toggleIsOpen, isOpen)" class="select">
       <div select-trigger class="select__trigger">
-        <span>{{selectedItem.value ? 'Link ' + selectedItem.value : 'Please select...'}} {{highlightedItem?.value}}</span>
+        <span>{{selectedItem.value ? 'Link ' + selectedItem.value : 'Please select...'}}</span>
         <span class="material-icons" *ngIf="!isOpen; else arrowUpTmpl">
           arrow_drop_down
         </span>
@@ -50,9 +50,9 @@
 <select-container>
   <ng-template let-isOpen="isOpen" let-selectedItem="selectedItem" let-highlightedItem="highlightedItem"
     let-toggleIsOpen="toggleIsOpen">
-    <section (clickOutside)="onClickedOutside($event, toggleIsOpen, isOpen)" class="select">
-      <div select-trigger class="select__trigger">
-        <span>{{selectedItem.value ? 'Link ' + selectedItem.value : 'Please select...'}} {{highlightedItem?.value}}</span>
+    <section (clickOutside)="onClickedOutside($event, toggleIsOpen, isOpen)" class="select2">
+      <div select-trigger class="select2__trigger">
+        <span>{{selectedItem.value ? displaySelectedValue(selectedItem?.value) : 'Please select...'}}</span>
         <span class="material-icons" *ngIf="!isOpen; else arrowUpTmpl">
           arrow_drop_down
         </span>
@@ -62,18 +62,22 @@
           </span>
         </ng-template>
       </div>
-      <ul *ngIf="isOpen" class="select__list">
-        <li [style.fontWeight]="selectedItem.value === '1' ? 'bold' : 'normal'" option-item [item]="{value: '1'}"
-          [style.backgroundColor]="highlightedItem.value === '1' ? 'grey' : 'white'">
-          &nbsp;&nbsp;Link 1
-        </li>
-        <li [style.fontWeight]="selectedItem.value === '2' ? 'bold' : 'normal'" option-item [item]="{value: '2'}"
-          [style.backgroundColor]="highlightedItem.value === '2' ? 'grey' : 'white'">
-          &nbsp;&nbsp;Link 2
-        </li>
-        <li [style.fontWeight]="selectedItem.value === '3' ? 'bold' : 'normal'" option-item [item]="{value: '3'}"
-          [style.backgroundColor]="highlightedItem.value === '3' ? 'grey' : 'white'">
-          &nbsp;&nbsp;Link 3
+      <ul *ngIf="isOpen" class="select2__list">
+        <li option-item *ngFor="let link of links" class="select2__list-item" [item]="{value: link?.value}"
+          [style.backgroundColor]="selectedItem.value === link.value || highlightedItem.value === link.value ? 'cornsilk' : 'white'">
+          <span [style.paddingLeft.px]="8">{{link?.label}}</span>
+          <span
+            *ngIf="selectedItem.value === link.value && highlightedItem?.value !== selectedItem?.value"
+            class="material-icons"
+            [ngStyle]="{fontSize: '18px', paddingRight: '8px'}">
+            check
+          </span>
+          <span
+            *ngIf="highlightedItem?.value === link?.value"
+            class="material-icons"
+            [ngStyle]="{fontSize: '18px', paddingRight: '8px'}">
+            {{getIcon(highlightedItem?.value)}}
+          </span>
         </li>
       </ul>
     </section>
